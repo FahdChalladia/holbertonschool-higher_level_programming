@@ -5,7 +5,6 @@
 ![Holberton](https://apply.holbertonschool.com/holberton-logo.png)
 
 ## Subjects of study:
-- Introduction to **`Chatgpt`**.
 - **`Py`** - Hello, World.
 - **`Py`** - if/else , loops, functions.    
 - **`Py`** - Import & modules
