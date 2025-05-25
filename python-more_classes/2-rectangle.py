@@ -1,7 +1,13 @@
 #!/usr/bin/python3
 """This module defines a Rectangle class with width and height properties,
 including methods for area and perimeter."""
+
 class Rectangle:
+    """Defines a rectangle with width and height.
+
+    Includes methods to compute area and perimeter.
+    """
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
