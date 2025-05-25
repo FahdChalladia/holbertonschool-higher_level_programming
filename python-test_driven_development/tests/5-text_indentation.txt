@@ -1,0 +1,26 @@
+>>> text_indentation("Hello. How are you? I am fine: thank you.")
+Hello.
+
+How are you?
+
+I am fine:
+
+thank you.
+>>> text_indentation("No punctuation here")
+No punctuation here
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+>>> text_indentation("Wait... What?  Really: Yes.")
+Wait...
+
+What?
+
+Really:
+
+Yes.
+>>> text_indentation("Multiple spaces after punctuation.   Should skip them.")
+Multiple spaces after punctuation.
+
+Should skip them.
