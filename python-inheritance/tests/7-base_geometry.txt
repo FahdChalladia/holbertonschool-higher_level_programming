@@ -1,6 +1,6 @@
-This is a doctest file for 7-base_geometry.py
+This is a doctest file for base_geometry_7.py
 
->>> bg = __import__('7-base_geometry').BaseGeometry()
+>>> bg = __import__('base_geometry_7').BaseGeometry()
 >>> bg.integer_validator("my_int", 12)
 >>> bg.integer_validator("width", 89)
 
@@ -18,7 +18,7 @@ ValueError: age must be greater than 0
 Traceback (most recent call last):
 ...
 ValueError: distance must be greater than 0
->>> bg = __import__('base_geometry_7_1').BaseGeometry()
+
 >>> bg.area()
 Traceback (most recent call last):
 ...
