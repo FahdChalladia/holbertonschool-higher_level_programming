@@ -19,7 +19,7 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        return math.pi * (self.radius ** 2)
+        return math.pi * self.radius ** 2
 
     def perimeter(self):
         return 2 * math.pi * self.radius
@@ -38,6 +38,5 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
-    # Duck typing: just call area and perimeter without type checking
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
