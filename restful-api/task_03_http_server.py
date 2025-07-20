@@ -9,13 +9,11 @@ import json
 
 class SimpleAPIHandler(BaseHTTPRequestHandler):
     def _set_headers(self, status_code=200, content_type="text/plain"):
-        """Helper method to send status and headers"""
         self.send_response(status_code)
         self.send_header('Content-type', content_type)
         self.end_headers()
 
     def do_GET(self):
-        """Handle GET requests based on path"""
         if self.path == "/":
             self._set_headers()
             self.wfile.write(b"Hello, this is a simple API!")
@@ -30,8 +28,9 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif self.path == "/status":
-            self._set_headers(content_type="application/json")
-            self.wfile.write(json.dumps({"status": "OK"}).encode("utf-8"))
+            # Return plain text "OK", not JSON
+            self._set_headers(content_type="text/plain")
+            self.wfile.write(b"OK")
 
         elif self.path == "/info":
             self._set_headers(content_type="application/json")
@@ -42,13 +41,12 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(info).encode("utf-8"))
 
         else:
-            self._set_headers(404, content_type="application/json")
-            error = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(error).encode("utf-8"))
+            # Return plain text "Endpoint not found"
+            self._set_headers(404, content_type="text/plain")
+            self.wfile.write(b"Endpoint not found")
 
 
 def run(server_class=HTTPServer, handler_class=SimpleAPIHandler, port=8000):
-    """Start the server"""
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print(f"Starting HTTP server on port {port}...")
