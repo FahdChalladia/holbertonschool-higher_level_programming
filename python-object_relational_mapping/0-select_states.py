@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-""" Script that lists all states from the database hbtn_0e_0_usa """
+"""
+Lists all states from the database hbtn_0e_0_usa
+Usage: ./0-select_states.py <mysql username> <mysql password> <database name>
+Connects to a MySQL server on localhost at port 3306
+"""
 
 import MySQLdb
 import sys
@@ -20,6 +24,5 @@ if __name__ == "__main__":
     rows = cursor.fetchall()
     for row in rows:
         print(row)
-
     cursor.close()
     db.close()
