@@ -17,7 +17,6 @@ def load_csv_data(filename='products.csv'):
         with open(filename, newline='') as f:
             reader = csv.DictReader(f)
             for row in reader:
-                # Ensure proper type conversion
                 data.append({
                     'id': int(row['id']),
                     'name': row['name'],
@@ -34,8 +33,6 @@ def display_products():
     product_id = request.args.get('id', type=int)
     products = []
     error = None
-
-    # Load data based on source
     if source == 'json':
         products = load_json_data()
     elif source == 'csv':
@@ -43,8 +40,6 @@ def display_products():
     else:
         error = 'Wrong source'
         return render_template('product_display.html', error=error)
-
-    # Filter by ID if provided
     if product_id is not None:
         products = [p for p in products if p['id'] == product_id]
         if not products:
